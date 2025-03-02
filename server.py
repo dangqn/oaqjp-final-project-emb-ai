@@ -10,7 +10,9 @@ def render_index():
 @app.route("/emotionDetector")
 def emotion_detector():
     text_to_analyse = request.args.get('textToAnalyze')
-    result = emotion_detection.emotion_detector(text_to_analyse)
+    result = emotion_detection.emotion_detector(text_to_analyse)    
+    if result['dominant_emotion'] == None:
+        return "<b>Invalid text! Please try again!</b>"
     return (
         "For the given statement, the system response is"
         f" 'anger': {result['anger']}, 'disgust': {result['disgust']},"
