@@ -1,3 +1,7 @@
+"""
+Send request to Emotion Predict of Watson NLP to get detection result
+"""
+
 import requests
 import json
 
